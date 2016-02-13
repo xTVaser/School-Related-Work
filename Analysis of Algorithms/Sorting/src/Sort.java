@@ -4,58 +4,109 @@ import java.util.Random;
 /**
  * Author - Tyler Wilding
  * Description - Empirical Analysis of several sorting functions.
+ * TODO -   Heap Sort
+ *          Calculate Execution Times
+ *          Implement Swap and Comparison Counting
+ *          Hoare Quicksort
+ *          Radix Sort
  */
 public class Sort {
 
     public static void main(String[] args) {
 
         int[] testArray = generateArray("",5000);
+        int[] array = {2,1,7,9,3,4,8,5,6};
+
+        System.out.println(Arrays.toString(array));
+
+        array = mergeSort(array, true);
+
+        System.out.println(Arrays.toString(array));
+
+        System.out.println(verifySorted(array));
 
         System.out.println(Arrays.toString(testArray));
 
-        System.out.println(Arrays.toString(selectionSort(testArray, true)));
+        testArray = mergeSort(testArray, true);
+
+        System.out.println(Arrays.toString(testArray));
 
         System.out.println(verifySorted(testArray));
 
-        int[] array = {1,2,3,4,5,6,7,8,9,10};
-        split(array);
-
 
     }
+
+
+
 
     /**
      * Performs an merge sort on a given array, will also calculate the execution time, number of swaps, comparisons and array accesses
-     * @param uArray The unsorted array
+     * @param mArr The unsorted array
      * @param count pass true if number of swaps, comparisons and array accesses are desired, else pass false.
      * @return The sorted array
      */
-    public static int[] mergeSort(int[] uArray, boolean count) {
+    public static int[] mergeSort(int[] mArr, boolean count) {
 
-        return uArray;//wrong
-    }
-
-    public static int[] split(int[] mArr) {
-
-        //Optimization Here
-        if(mArr.length == 1)
+        if(mArr.length <= 1)
             return mArr;
 
-        int lengthArr = mArr.length/2;
+        int[] aArr = new int[mArr.length/2];
+        int[] bArr = new int[(int)Math.ceil(mArr.length/2.0)];
 
-        int[] aArr = new int[lengthArr];
-        for(int i = 0; i < aArr.length; i++)
+        for(int i = 0; i < mArr.length/2; i++)
             aArr[i] = mArr[i];
 
-        int[] bArr = new int[lengthArr];
-        for(int i = 0; i < bArr.length; i++)
-            bArr[i] = mArr[lengthArr+i];
+        for(int i = mArr.length/2, j = 0; i < mArr.length; i++, j++)
+            bArr[j] = mArr[i];
 
-        return merge(aArr, bArr);
+        aArr = mergeSort(aArr, count);
+        bArr = mergeSort(bArr, count);
+
+        return merge(aArr, bArr, count);
     }
 
-    public static int[] merge(int[] aArr, int[] bArr) {
+    /**
+     * Merges 2 unsorted integers arrays into a combined sorted array
+     * @param aArr First array
+     * @param bArr Second array
+     * @param count If swaps/comparisons should be calculated
+     * @return Combined sorted array.
+     */
+    public static int[] merge(int[] aArr, int[] bArr, boolean count) {
 
-        return null;
+        if(aArr.length == 2 && aArr[0] > aArr[1]) {
+            int temp = aArr[1];
+            aArr[1] = aArr[0];
+            aArr[0] = temp;
+        }
+
+        if(bArr.length == 2 && bArr[0] > bArr[1]) {
+            int temp = bArr[1];
+            bArr[1] = bArr[0];
+            bArr[0] = temp;
+        }
+
+        int[] cArr = new int[aArr.length+bArr.length];
+
+        int aIndex = 0;
+        int bIndex = 0;
+        int cIndex = 0;
+
+        while(aIndex < aArr.length && bIndex < bArr.length) {
+
+            if(aArr[aIndex] < bArr[bIndex])
+                cArr[cIndex++] = aArr[aIndex++];
+            else
+                cArr[cIndex++] = bArr[bIndex++];
+        }
+
+        while(aIndex < aArr.length)
+            cArr[cIndex++] = aArr[aIndex++];
+
+        while(bIndex < bArr.length)
+            cArr[cIndex++] = bArr[bIndex++];
+
+        return cArr;
     }
 
 
@@ -112,6 +163,11 @@ public class Sort {
         return uArray;
     }
 
+    /**
+     * Quick method to verify that the array is sorted, useful for testing.
+     * @param sArray Potentially sorted integer array
+     * @return True or false if sorted.
+     */
     public static boolean verifySorted(int[] sArray) {
 
         for(int i = 0; i < sArray.length-1; i++) {
