@@ -14,28 +14,70 @@ public class Sort {
 
     public static void main(String[] args) {
 
-        int[] testArray = generateArray("",5000);
-        int[] array = {2,1,7,9,3,4,8,5,6};
+        //int[] array = generateArray("",5000);
+        int[] array = {12,11,10,9,7,6};
 
         System.out.println(Arrays.toString(array));
 
-        array = mergeSort(array, true);
+        array = quickSort(array, 0, array.length-1);
 
         System.out.println(Arrays.toString(array));
 
         System.out.println(verifySorted(array));
 
-        System.out.println(Arrays.toString(testArray));
-
-        testArray = mergeSort(testArray, true);
-
-        System.out.println(Arrays.toString(testArray));
-
-        System.out.println(verifySorted(testArray));
-
 
     }
 
+    /**
+     * Quicksort Method
+     * @param uArr Full unsorted array
+     * @param lowBound Beginning of the partion (assuming 0 based)
+     * @param highBound End of the partiton (for example length-1)
+     * @return The sorted array.
+     */
+    public static int[] quickSort(int[] uArr, int lowBound, int highBound) {
+
+        if(lowBound < highBound) {
+
+            int pivot = partitionArray(uArr, lowBound, highBound);
+
+            quickSort(uArr, lowBound, pivot-1);
+            quickSort(uArr, pivot+1, highBound);
+        }
+
+        return uArr;
+    }
+
+    /**
+     * Quicksort partition scheme using Lomento's Pivot Selection
+     * @param arr Full unsorted array
+     * @param lowBound Beginning of the partition (assuming 0 based)
+     * @param highBound End of the partition (for example length-1)
+     * @return The new pivot's position
+     */
+    public static int partitionArray(int[] arr, int lowBound, int highBound) {
+
+        int pivotElement = arr[highBound];
+
+        int i = lowBound-1;
+
+        for(int j = lowBound; j < highBound; j++) {
+
+            if(arr[j] <= pivotElement) {
+                i++;
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+
+        i++;
+        int temp = arr[i];
+        arr[i] = arr[highBound];
+        arr[highBound] = temp;
+
+        return i;
+    }
 
 
 
