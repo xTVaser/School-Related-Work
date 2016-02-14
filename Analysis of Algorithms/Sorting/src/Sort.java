@@ -22,6 +22,7 @@ public class Sort {
         //array = insertionSort(array);
         //System.out.println(verifySorted(array));
 
+        long startTime = System.nanoTime();
         //Actual rigorous testing routine, does 100 sorts with each test case, on each sorting algorithm from size 100 to 12800.
         for(int i = 0; i <= 7; i++) {
             testAlgorithms("Ascending",(int)Math.pow(2,i)*100,100);
@@ -33,6 +34,7 @@ public class Sort {
         testAlgorithms("Ascending",5000,100);
         testAlgorithms("Descending",5000,100);
         testAlgorithms("Random",5000,100);
+        System.out.println("Testing Completed In: "+(System.nanoTime()-startTime)/1000000000+"s");
     }
 
     /**
@@ -93,7 +95,7 @@ public class Sort {
                 System.out.println("Quick Sort Failed!");
         }
         System.out.printf(  "%24s %10d | Comparisons: %10d | Array Accesses: %10d | Recursive Calls: %10d | Time: %10.3fms\n"
-                ,"Quick Sort - Swaps: ",swaps/iterations,compares/iterations,accesses/iterations,recursions/iterations,timeAvg);
+                ,"Quick Sort - Swaps: ",swaps/iterations,compares/iterations,accesses/iterations,recursions/iterations,timeAvg/iterations);
 
         resetCounters();
         timeAvg = 0;
@@ -111,7 +113,7 @@ public class Sort {
                 System.out.println("Merge Sort Failed!");
         }
         System.out.printf(  "%24s %10d | Comparisons: %10d | Array Accesses: %10d | Recursive Calls: %10d | Time: %10.3fms\n"
-                ,"Merge Sort - Swaps: ",swaps/iterations,compares/iterations,accesses/iterations,recursions/iterations,timeAvg);
+                ,"Merge Sort - Swaps: ",swaps/iterations,compares/iterations,accesses/iterations,recursions/iterations,timeAvg/iterations);
 
         resetCounters();
         timeAvg = 0;
@@ -129,7 +131,7 @@ public class Sort {
                 System.out.println("Selecton Sort Failed!");
         }
         System.out.printf(  "%24s %10d | Comparisons: %10d | Array Accesses: %10d | Recursive Calls: %10d | Time: %10.3fms\n"
-                ,"Selection Sort - Swaps: ",swaps/iterations,compares/iterations,accesses/iterations,recursions/iterations,timeAvg);
+                ,"Selection Sort - Swaps: ",swaps/iterations,compares/iterations,accesses/iterations,recursions/iterations,timeAvg/iterations);
 
         resetCounters();
         timeAvg = 0;
@@ -146,7 +148,7 @@ public class Sort {
                 System.out.println("Insertion Sort Failed!");
         }
         System.out.printf(  "%24s %10d | Comparisons: %10d | Array Accesses: %10d | Recursive Calls: %10d | Time: %10.3fms\n"
-                            ,"Insertion Sort - Swaps: ",swaps/iterations,compares/iterations,accesses/iterations,recursions/iterations,timeAvg);
+                            ,"Insertion Sort - Swaps: ",swaps/iterations,compares/iterations,accesses/iterations,recursions/iterations,timeAvg/iterations);
 
         resetCounters();
         System.out.println();
