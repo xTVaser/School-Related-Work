@@ -59,8 +59,8 @@ public class Sort {
         //Each test we set the time back to 0.
         double timeAvg = 0;
 
-        System.out.println("Test - Array Type: "+arrayType+" | Array Size: "+arraySize+" | Sample Size: "+iterations);
-        System.out.println("-----------------------------------------");
+        System.out.printf("%25s Array Type: %15s | Array Size: %10d | Sample Size: %5d\n","Sorting Algorithm Test - ",arrayType,arraySize,iterations);
+        System.out.println("-----------------------------------------------------------------------------------------------------------------------");
 
         for(int i = 0; i < iterations; i++) {
 
@@ -75,8 +75,8 @@ public class Sort {
                 System.out.println("Heap Sort Failed!");
         }
         //Print out the averages of the results.
-        System.out.printf("Heap Sort - Swaps: "+swaps/iterations+" | Compares: "+compares/iterations+" | Array Accesses: "+accesses/iterations+
-                            " | Recursive Calls: "+recursions/iterations+" | Time: %.3fms\n",timeAvg);
+        System.out.printf(  "%24s %10d | Comparisons: %10d | Array Accesses: %10d | Recursive Calls: %10d | Time: %10.3fms\n"
+                            ,"Heap Sort - Swaps: ",swaps/iterations,compares/iterations,accesses/iterations,recursions/iterations,timeAvg);
         //Reset the counters for the next test.
         resetCounters();
         timeAvg = 0;
@@ -92,8 +92,8 @@ public class Sort {
             if(!verifySorted(array))
                 System.out.println("Quick Sort Failed!");
         }
-        System.out.printf("Quick Sort - Swaps: "+swaps/iterations+" | Compares: "+compares/iterations+" | Array Accesses: "+accesses/iterations+
-                " | Recursive Calls: "+recursions/iterations+" | Time: %.3fms\n",timeAvg/iterations);
+        System.out.printf(  "%24s %10d | Comparisons: %10d | Array Accesses: %10d | Recursive Calls: %10d | Time: %10.3fms\n"
+                ,"Quick Sort - Swaps: ",swaps/iterations,compares/iterations,accesses/iterations,recursions/iterations,timeAvg);
 
         resetCounters();
         timeAvg = 0;
@@ -110,8 +110,8 @@ public class Sort {
             if(!verifySorted(array))
                 System.out.println("Merge Sort Failed!");
         }
-        System.out.printf("Merge Sort - Swaps: "+swaps/iterations+" | Compares: "+compares/iterations+" | Array Accesses: "+accesses/iterations+
-                " | Recursive Calls: "+recursions/iterations+" | Time: %.3fms\n",timeAvg/iterations);
+        System.out.printf(  "%24s %10d | Comparisons: %10d | Array Accesses: %10d | Recursive Calls: %10d | Time: %10.3fms\n"
+                ,"Merge Sort - Swaps: ",swaps/iterations,compares/iterations,accesses/iterations,recursions/iterations,timeAvg);
 
         resetCounters();
         timeAvg = 0;
@@ -128,8 +128,8 @@ public class Sort {
             if(!verifySorted(array))
                 System.out.println("Selecton Sort Failed!");
         }
-        System.out.printf("Selection Sort - Swaps: "+swaps/iterations+" | Compares: "+compares/iterations+" | Array Accesses: "+accesses/iterations+
-                " | Recursive Calls: "+recursions/iterations+" | Time: %.3fms\n",timeAvg/iterations);
+        System.out.printf(  "%24s %10d | Comparisons: %10d | Array Accesses: %10d | Recursive Calls: %10d | Time: %10.3fms\n"
+                ,"Selection Sort - Swaps: ",swaps/iterations,compares/iterations,accesses/iterations,recursions/iterations,timeAvg);
 
         resetCounters();
         timeAvg = 0;
@@ -145,10 +145,11 @@ public class Sort {
             if(!verifySorted(array))
                 System.out.println("Insertion Sort Failed!");
         }
-        System.out.printf("Insertion Sort - Swaps: "+swaps/iterations+" | Compares: "+compares/iterations+" | Array Accesses: "+accesses/iterations+
-                " | Recursive Calls: "+recursions/iterations+" | Time: %.3fms\n",timeAvg/iterations);
+        System.out.printf(  "%24s %10d | Comparisons: %10d | Array Accesses: %10d | Recursive Calls: %10d | Time: %10.3fms\n"
+                            ,"Insertion Sort - Swaps: ",swaps/iterations,compares/iterations,accesses/iterations,recursions/iterations,timeAvg);
 
         resetCounters();
+        System.out.println();
         System.out.println();
     }
 
