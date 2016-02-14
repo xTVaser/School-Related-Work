@@ -26,8 +26,8 @@
       <file leaf-file-name="Sort.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Sort.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2555205">
-              <caret line="42" column="112" selection-start-line="42" selection-start-column="112" selection-end-line="42" selection-end-column="112" />
+            <state vertical-scroll-proportion="0.53943217">
+              <caret line="238" column="50" selection-start-line="238" selection-start-column="50" selection-end-line="238" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#partitionArray#0;class#Sort#0" expanded="false" />
@@ -637,12 +637,12 @@
       <option name="number" value="Default" />
       <updated>1454948350344</updated>
       <workItem from="1454948353734" duration="1175000" />
-      <workItem from="1455250259901" duration="25939000" />
+      <workItem from="1455250259901" duration="28190000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27114000" />
+    <option name="totallyTimeSpent" value="29365000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-35" width="2880" height="1655" extended-state="6" />
@@ -655,7 +655,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3287951" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3287951" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -701,8 +701,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Sort.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2555205">
-          <caret line="42" column="112" selection-start-line="42" selection-start-column="112" selection-end-line="42" selection-end-column="112" />
+        <state vertical-scroll-proportion="0.53943217">
+          <caret line="238" column="50" selection-start-line="238" selection-start-column="50" selection-end-line="238" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#partitionArray#0;class#Sort#0" expanded="false" />

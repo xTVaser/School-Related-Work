@@ -23,106 +23,142 @@ public class Sort {
         int[] array = generateArray("",100000);
         //int[] array = {7,8,4,5,7,8,1,2};
 
-        array = insertionSort(array, true);
+        //array = insertionSort(array, true);
 
         System.out.println(verifySorted(array));
 
-        testAlgorithms("", 100, 10);
+        testAlgorithms("Ascending", 100, 2);
 
 
     }
 
+    public static void resetCounters() {
+
+        swaps = 0;
+        compares = 0;
+        accesses = 0;
+        recursions = 0;
+        time = 0;
+    }
+
     public static void testAlgorithms(String arrayType, int arraySize, int iterations) {
 
-        long swapAvg = 0;
-        long compareAvg = 0;
-        long accessAvg = 0;
-        long recursionAvg = 0;
         double timeAvg = 0;
 
-        System.out.println("Test - Array Type: "+arrayType+" Array Size: "+arraySize+" Sample Size: "+iterations);
+        System.out.println("Test - Array Type: "+arrayType+" | Array Size: "+arraySize+" | Sample Size: "+iterations);
+        System.out.println("-----------------------------------------");
 
         for(int i = 0; i < iterations; i++) {
 
             int[] array = generateArray(arrayType, arraySize);
-            array = heapSort(array, true);
+            array = heapSort(array);
 
-            if(verifySorted(array)) {
+            if(i == 0)
+                timeAvg = time;
 
-                swapAvg += swaps;
-                compareAvg += compares;
-                accessAvg += accesses;
-                recursionAvg += recursions;
-            }
-            else {
-
+            if(!verifySorted(array))
                 System.out.println("Heap Sort Failed!");
-            }
         }
+        System.out.printf("Heap Sort - Swaps: "+swaps/iterations+" | Compares: "+compares/iterations+" | Array Accesses: "+accesses/iterations+
+                            " | Recursive Calls: "+recursions/iterations+" | Time: %.3fms\n",timeAvg);
 
-        System.out.println("Test - ");;
+        resetCounters();
+        timeAvg = 0;
+
+        for(int i = 0; i < iterations; i++) {
+
+            int[] array = generateArray(arrayType, arraySize);
+            array = quickSortHelper(array, true);
+
+            timeAvg += time;
+
+            if(!verifySorted(array))
+                System.out.println("Quick Sort Failed!");
+        }
+        System.out.printf("Quick Sort - Swaps: "+swaps/iterations+" | Compares: "+compares/iterations+" | Array Accesses: "+accesses/iterations+
+                " | Recursive Calls: "+recursions/iterations+" | Time: %.3fms\n",timeAvg/iterations);
+
+        resetCounters();
+        timeAvg = 0;
+
+        for(int i = 0; i < iterations; i++) {
+
+            int[] array = generateArray(arrayType, arraySize);
+            array = mergeSortHelper(array, true);
+
+            timeAvg += time;
 
 
+            if(!verifySorted(array))
+                System.out.println("Merge Sort Failed!");
+        }
+        System.out.printf("Merge Sort - Swaps: "+swaps/iterations+" | Compares: "+compares/iterations+" | Array Accesses: "+accesses/iterations+
+                " | Recursive Calls: "+recursions/iterations+" | Time: %.3fms\n",timeAvg/iterations);
+
+        resetCounters();
+        timeAvg = 0;
+
+        for(int i = 0; i < iterations; i++) {
+
+            int[] array = generateArray(arrayType, arraySize);
+            array = selectionSort(array, true);
+
+            timeAvg += time;
+
+
+            if(!verifySorted(array))
+                System.out.println("Selecton Sort Failed!");
+        }
+        System.out.printf("Selection Sort - Swaps: "+swaps/iterations+" | Compares: "+compares/iterations+" | Array Accesses: "+accesses/iterations+
+                " | Recursive Calls: "+recursions/iterations+" | Time: %.3fms\n",timeAvg/iterations);
+
+        resetCounters();
+        timeAvg = 0;
+
+        for(int i = 0; i < iterations; i++) {
+
+            int[] array = generateArray(arrayType, arraySize);
+            array = insertionSort(array, true);
+
+            timeAvg += time;
+
+            if(!verifySorted(array))
+                System.out.println("Insertion Sort Failed!");
+        }
+        System.out.printf("Insertion Sort - Swaps: "+swaps/iterations+" | Compares: "+compares/iterations+" | Array Accesses: "+accesses/iterations+
+                " | Recursive Calls: "+recursions/iterations+" | Time: %.3fms\n",timeAvg/iterations);
+
+        resetCounters();
     }
 
     /**
      * Mai heap sort function.
      * @param uArr Unsorted array that is a heap during sorting.
-     * @param count Whether or not to count comparisons and swaps.
      * @return The sorted array.
      */
-    public static int[] heapSort(int[] uArr, boolean count) {
+    public static int[] heapSort(int[] uArr) {
 
-        if(count) {
-            long startTime = System.nanoTime();
+        long startTime = System.nanoTime();
 
-            int numElements = uArr.length - 1;
+        int numElements = uArr.length - 1;
 
-            for(int i = numElements/2; i >= 0; i--)
-                heapify(uArr, i, numElements, count);
+        for(int i = numElements/2; i >= 0; i--)
+            heapify(uArr, i, numElements);
 
-            for(int i = numElements; i > 0; i--) {
+        for(int i = numElements; i > 0; i--) {
 
-                int temp = uArr[0];
-                uArr[0] = uArr[i];
-                uArr[i] = temp;
-                accesses+=3;
-                swaps++;
+            int temp = uArr[0];
+            uArr[0] = uArr[i];
+            uArr[i] = temp;
+            accesses+=3;
+            swaps++;
 
-                numElements--;
-                heapify(uArr, 0, numElements, count);
-            }
-            time = (double)(System.nanoTime()-startTime)/1000000;
-            System.out.printf("Heap Sort completed in: %.3f ms\n",time);
-            System.out.println("Heap Sort swaps: "+swaps);
-            System.out.println("Heap Sort comparisons: "+compares);
-            System.out.println("Heap Sort array accesses: "+accesses);
-            System.out.println("Heap Sort recursive calls: "+recursions);
-
-            return uArr;
+            numElements--;
+            heapify(uArr, 0, numElements);
         }
-
-        else {
-            long startTime = System.nanoTime();
-
-            int numElements = uArr.length - 1;
-
-            for(int i = numElements/2; i >= 0; i--)
-                heapify(uArr, i, numElements, count);
-
-            for(int i = numElements; i > 0; i--) {
-
-                int temp = uArr[0];
-                uArr[0] = uArr[i];
-                uArr[i] = temp;
-
-                numElements--;
-                heapify(uArr, 0, numElements, count);
-            }
-            System.out.println("Heap Sort completed in: "+(System.nanoTime()-startTime)/1000000+"ms");
-
-            return uArr;
-        }
+        time = (double)(System.nanoTime()-startTime)/1000000;
+        System.out.printf("heapsort completed in: %.3f ms\n",time);
+        return uArr;
     }
 
     /**
@@ -132,84 +168,54 @@ public class Sort {
      * @param numElements Total elements that are not sorted in the array
      * @return Heap as an integer array.
      */
-    public static int[] heapify(int[] uArr, int i, int numElements, boolean count) {
+    public static int[] heapify(int[] uArr, int i, int numElements) {
 
-        if(count) {
+        int leftChild = i * 2;
+        int rightChild = i * 2 + 1;
+        int root = i;
 
-            int leftChild = i * 2;
-            int rightChild = i * 2 + 1;
-            int root = i;
+        if(leftChild <= numElements) {
 
-            if(leftChild <= numElements) {
-
-                if(uArr[leftChild] > uArr[root])
-                    root = leftChild;
-                accesses+=2;
-                compares++;
-            }
-
-            if(rightChild <= numElements) {
-
-                if(uArr[rightChild] > uArr[root])
-                    root = rightChild;
-                accesses+=2;
-                compares++;
-            }
-
-            if(root != i) {
-                int temp = uArr[i];
-                uArr[i] = uArr[root];
-                uArr[root] = temp;
-                accesses+=4;
-                swaps++;
-                recursions++;
-                heapify(uArr, root, numElements, count);
-            }
-
-            return uArr;
-        }
-
-        else {
-
-            int leftChild = i * 2;
-            int rightChild = i * 2 + 1;
-            int root = i;
-
-            if(leftChild <= numElements && uArr[leftChild] > uArr[root])
+            if(uArr[leftChild] > uArr[root])
                 root = leftChild;
-            if(rightChild <= numElements && uArr[rightChild] > uArr[root])
-                root = rightChild;
-            if(root != i) {
-                int temp = uArr[i];
-                uArr[i] = uArr[root];
-                uArr[root] = temp;
-                heapify(uArr, root, numElements, count);
-            }
-
-            return uArr;
+            accesses+=2;
+            compares++;
         }
+
+        if(rightChild <= numElements) {
+
+            if(uArr[rightChild] > uArr[root])
+                root = rightChild;
+            accesses+=2;
+            compares++;
+        }
+
+        if(root != i) {
+            int temp = uArr[i];
+            uArr[i] = uArr[root];
+            uArr[root] = temp;
+            accesses+=4;
+            swaps++;
+            recursions++;
+            heapify(uArr, root, numElements);
+        }
+
+        return uArr;
 
     }
 
     /**
      * Quick method to easily call quicksort and collect empirical analysis on it.
      * @param uArr Unsorted Array
-     * @param count Whether or not to count comparisons/swaps/accesses
      * @return Sorted integer array.
      */
-    public static int[] quickSortHelper(int[] uArr, boolean count) {
+    public static int[] quickSortHelper(int[] uArr) {
 
         long startTime = System.nanoTime();
 
-        quickSort(uArr, 0, uArr.length-1, count);
+        quickSort(uArr, 0, uArr.length-1);
 
         time = (double)(System.nanoTime()-startTime)/1000000;
-
-        System.out.printf("Quicksort completed in: %.3f ms\n",time);
-        System.out.println("Quicksort swaps: "+swaps);
-        System.out.println("Quicksort comparisons: "+compares);
-        System.out.println("Quicksort array accesses: "+accesses);
-        System.out.println("Quicksort recursive calls: "+recursions);
 
         return uArr;
     }
@@ -221,16 +227,16 @@ public class Sort {
      * @param highBound End of the partiton (for example length-1)
      * @return The sorted array.
      */
-    public static int[] quickSort(int[] uArr, int lowBound, int highBound, boolean count) {
+    public static int[] quickSort(int[] uArr, int lowBound, int highBound) {
 
         if(count) {
 
             if(lowBound < highBound) {
 
-                int pivot = partitionArray(uArr, lowBound, highBound, count);
+                int pivot = partitionArray(uArr, lowBound, highBound);
                 recursions+=2;
-                quickSort(uArr, lowBound, pivot-1, count);
-                quickSort(uArr, pivot+1, highBound, count);
+                quickSort(uArr, lowBound, pivot-1);
+                quickSort(uArr, pivot+1, highBound);
             }
 
             return uArr;
