@@ -4,7 +4,7 @@ import java.util.Random;
 /**
  * Author - Tyler Wilding
  * Description - Empirical Analysis of several sorting functions.
- * TODO -   Heap Sort
+ * TODO -   
  *          Calculate Execution Times
  *          Implement Swap and Comparison Counting
  *          Hoare Quicksort
@@ -14,18 +14,71 @@ public class Sort {
 
     public static void main(String[] args) {
 
-        //int[] array = generateArray("",5000);
-        int[] array = {12,11,10,9,7,6};
+        int[] array = generateArray("",5000);
+        //int[] array = {7,8,4,5,7,8,1,2};
 
         System.out.println(Arrays.toString(array));
 
-        array = quickSort(array, 0, array.length-1);
+        array = heapSort(array, true);
 
         System.out.println(Arrays.toString(array));
 
         System.out.println(verifySorted(array));
 
 
+    }
+
+    /**
+     * Mai heap sort function.
+     * @param uArr Unsorted array that is a heap during sorting.
+     * @param count Whether or not to count comparisons and swaps.
+     * @return The sorted array.
+     */
+    public static int[] heapSort(int[] uArr, boolean count) {
+
+        int numElements = uArr.length - 1;
+
+        for(int i = numElements/2; i >= 0; i--)
+            heapify(uArr, i, numElements);
+
+        for(int i = numElements; i > 0; i--) {
+
+            int temp = uArr[0];
+            uArr[0] = uArr[i];
+            uArr[i] = temp;
+
+            numElements--;
+            heapify(uArr, 0, numElements);
+        }
+
+        return uArr;
+    }
+
+    /**
+     * Rebuilds the array back into a max heap.
+     * @param uArr Unsorted Array, now a heap.
+     * @param i Current root node we are looking at
+     * @param numElements Total elements that are not sorted in the array
+     * @return Heap as an integer array.
+     */
+    public static int[] heapify(int[] uArr, int i, int numElements) {
+
+        int leftChild = i * 2;
+        int rightChild = i * 2 + 1;
+        int root = i;
+
+        if(leftChild <= numElements && uArr[leftChild] > uArr[root])
+            root = leftChild;
+        if(rightChild <= numElements && uArr[rightChild] > uArr[root])
+            root = rightChild;
+        if(root != i) {
+            int temp = uArr[i];
+            uArr[i] = uArr[root];
+            uArr[root] = temp;
+            heapify(uArr, root, numElements);
+        }
+
+        return uArr;
     }
 
     /**
