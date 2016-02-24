@@ -482,11 +482,13 @@ public class Sort {
                 compares++;
             }
 
-            //At the end, swap the smallest element with the last element in the sorted region, sorted region now increases by 1.
-            uArray[swapIndex] = uArray[i];
-            uArray[i] = smallestElement;
-            swaps+=2;
-            accesses+=3;
+            if(swapIndex != i) {
+                //At the end, swap the smallest element with the last element in the sorted region, sorted region now increases by 1.
+                uArray[swapIndex] = uArray[i];
+                uArray[i] = smallestElement;
+                swaps += 2;
+                accesses += 3;
+            }
         }
 
         time = (double)(System.nanoTime()-startTime)/1000000;

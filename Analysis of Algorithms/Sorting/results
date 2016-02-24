@@ -1,0 +1,245 @@
+Sorting Algorithm Test -  Array Type:       Ascending | Array Size:        100 | Sample Size:   100
+-----------------------------------------------------------------------------------------------------------------------
+     Heap Sort - Swaps:         738 | Comparisons:       1282 | Array Accesses:       5417 | Recursive Calls:        639 | Time:      0.321ms
+    Quick Sort - Swaps:        5049 | Comparisons:       4950 | Array Accesses:      25245 | Recursive Calls:        198 | Time:      0.109ms
+    Merge Sort - Swaps:         600 | Comparisons:        316 | Array Accesses:       2432 | Recursive Calls:        126 | Time:      0.090ms
+Selection Sort - Swaps:         200 | Comparisons:       5050 | Array Accesses:       5550 | Recursive Calls:          0 | Time:      0.111ms
+Insertion Sort - Swaps:          99 | Comparisons:         99 | Array Accesses:        297 | Recursive Calls:          0 | Time:      0.024ms
+
+
+Sorting Algorithm Test -  Array Type:      Descending | Array Size:        100 | Sample Size:   100
+-----------------------------------------------------------------------------------------------------------------------
+     Heap Sort - Swaps:         598 | Comparisons:       1126 | Array Accesses:       4545 | Recursive Calls:        499 | Time:      0.027ms
+    Quick Sort - Swaps:        2549 | Comparisons:       4950 | Array Accesses:      15245 | Recursive Calls:        198 | Time:      0.089ms
+    Merge Sort - Swaps:         636 | Comparisons:        356 | Array Accesses:       2656 | Recursive Calls:        126 | Time:      0.036ms
+Selection Sort - Swaps:         200 | Comparisons:       5050 | Array Accesses:       8050 | Recursive Calls:          0 | Time:      0.066ms
+Insertion Sort - Swaps:        5049 | Comparisons:       5049 | Array Accesses:      15147 | Recursive Calls:          0 | Time:      0.089ms
+
+
+Sorting Algorithm Test -  Array Type:          Random | Array Size:        100 | Sample Size:   100
+-----------------------------------------------------------------------------------------------------------------------
+     Heap Sort - Swaps:         673 | Comparisons:       1221 | Array Accesses:       5040 | Recursive Calls:        574 | Time:      0.014ms
+    Quick Sort - Swaps:         416 | Comparisons:        645 | Array Accesses:       2377 | Recursive Calls:        134 | Time:      0.014ms
+    Merge Sort - Swaps:         617 | Comparisons:        542 | Array Accesses:       2954 | Recursive Calls:        126 | Time:      0.034ms
+Selection Sort - Swaps:         200 | Comparisons:       5050 | Array Accesses:       5895 | Recursive Calls:          0 | Time:      0.061ms
+Insertion Sort - Swaps:        2523 | Comparisons:       2523 | Array Accesses:       7571 | Recursive Calls:          0 | Time:      0.037ms
+
+
+Sorting Algorithm Test -  Array Type:       Ascending | Array Size:        200 | Sample Size:   100
+-----------------------------------------------------------------------------------------------------------------------
+     Heap Sort - Swaps:        1684 | Comparisons:       2985 | Array Accesses:      12507 | Recursive Calls:       1485 | Time:      0.024ms
+    Quick Sort - Swaps:       20099 | Comparisons:      19900 | Array Accesses:     100495 | Recursive Calls:        398 | Time:      0.140ms
+    Merge Sort - Swaps:        1400 | Comparisons:        732 | Array Accesses:       5664 | Recursive Calls:        254 | Time:      0.046ms
+Selection Sort - Swaps:         400 | Comparisons:      20100 | Array Accesses:      21100 | Recursive Calls:          0 | Time:      0.166ms
+Insertion Sort - Swaps:         199 | Comparisons:        199 | Array Accesses:        597 | Recursive Calls:          0 | Time:      0.003ms
+
+
+Sorting Algorithm Test -  Array Type:      Descending | Array Size:        200 | Sample Size:   100
+-----------------------------------------------------------------------------------------------------------------------
+     Heap Sort - Swaps:        1412 | Comparisons:       2658 | Array Accesses:      10765 | Recursive Calls:       1213 | Time:      0.018ms
+    Quick Sort - Swaps:       10099 | Comparisons:      19900 | Array Accesses:      60495 | Recursive Calls:        398 | Time:      0.116ms
+    Merge Sort - Swaps:        1472 | Comparisons:        812 | Array Accesses:       6112 | Recursive Calls:        254 | Time:      0.068ms
+Selection Sort - Swaps:         400 | Comparisons:      20100 | Array Accesses:      31100 | Recursive Calls:          0 | Time:      0.049ms
+Insertion Sort - Swaps:       20099 | Comparisons:      20099 | Array Accesses:      60297 | Recursive Calls:          0 | Time:      0.340ms
+
+
+Sorting Algorithm Test -  Array Type:          Random | Array Size:        200 | Sample Size:   100
+-----------------------------------------------------------------------------------------------------------------------
+     Heap Sort - Swaps:        1555 | Comparisons:       2851 | Array Accesses:      11726 | Recursive Calls:       1356 | Time:      0.025ms
+    Quick Sort - Swaps:         959 | Comparisons:       1583 | Array Accesses:       5557 | Recursive Calls:        269 | Time:      0.020ms
+    Merge Sort - Swaps:        1436 | Comparisons:       1281 | Array Accesses:       6909 | Recursive Calls:        254 | Time:      0.063ms
+Selection Sort - Swaps:         400 | Comparisons:      20100 | Array Accesses:      21940 | Recursive Calls:          0 | Time:      0.044ms
+Insertion Sort - Swaps:       10124 | Comparisons:      10124 | Array Accesses:      30374 | Recursive Calls:          0 | Time:      0.411ms
+
+
+Sorting Algorithm Test -  Array Type:       Ascending | Array Size:        400 | Sample Size:   100
+-----------------------------------------------------------------------------------------------------------------------
+     Heap Sort - Swaps:        3780 | Comparisons:       6816 | Array Accesses:      28353 | Recursive Calls:       3381 | Time:      0.053ms
+    Quick Sort - Swaps:       80199 | Comparisons:      79800 | Array Accesses:     400995 | Recursive Calls:        798 | Time:      0.551ms
+    Merge Sort - Swaps:        3200 | Comparisons:       1664 | Array Accesses:      12928 | Recursive Calls:        510 | Time:      0.211ms
+Selection Sort - Swaps:         800 | Comparisons:      80200 | Array Accesses:      82200 | Recursive Calls:          0 | Time:      0.100ms
+Insertion Sort - Swaps:         399 | Comparisons:        399 | Array Accesses:       1197 | Recursive Calls:          0 | Time:      0.004ms
+
+
+Sorting Algorithm Test -  Array Type:      Descending | Array Size:        400 | Sample Size:   100
+-----------------------------------------------------------------------------------------------------------------------
+     Heap Sort - Swaps:        3224 | Comparisons:       6169 | Array Accesses:      24835 | Recursive Calls:       2825 | Time:      0.051ms
+    Quick Sort - Swaps:       40199 | Comparisons:      79800 | Array Accesses:     240995 | Recursive Calls:        798 | Time:      0.442ms
+    Merge Sort - Swaps:        3344 | Comparisons:       1824 | Array Accesses:      13824 | Recursive Calls:        510 | Time:      0.097ms
+Selection Sort - Swaps:         800 | Comparisons:      80200 | Array Accesses:     122200 | Recursive Calls:          0 | Time:      0.205ms
+Insertion Sort - Swaps:       80199 | Comparisons:      80199 | Array Accesses:     240597 | Recursive Calls:          0 | Time:      0.222ms
+
+
+Sorting Algorithm Test -  Array Type:          Random | Array Size:        400 | Sample Size:   100
+-----------------------------------------------------------------------------------------------------------------------
+     Heap Sort - Swaps:        3509 | Comparisons:       6502 | Array Accesses:      26645 | Recursive Calls:       3110 | Time:      0.066ms
+    Quick Sort - Swaps:        2232 | Comparisons:       3703 | Array Accesses:      12904 | Recursive Calls:        542 | Time:      0.041ms
+    Merge Sort - Swaps:        3271 | Comparisons:       2962 | Array Accesses:      15810 | Recursive Calls:        510 | Time:      0.095ms
+Selection Sort - Swaps:         800 | Comparisons:      80200 | Array Accesses:      84142 | Recursive Calls:          0 | Time:      0.145ms
+Insertion Sort - Swaps:       40191 | Comparisons:      40191 | Array Accesses:     120575 | Recursive Calls:          0 | Time:      0.117ms
+
+
+Sorting Algorithm Test -  Array Type:       Ascending | Array Size:        800 | Sample Size:   100
+-----------------------------------------------------------------------------------------------------------------------
+     Heap Sort - Swaps:        8360 | Comparisons:      15283 | Array Accesses:      63207 | Recursive Calls:       7561 | Time:      0.092ms
+    Quick Sort - Swaps:      320399 | Comparisons:     319600 | Array Accesses:    1601995 | Recursive Calls:       1598 | Time:      1.763ms
+    Merge Sort - Swaps:        7200 | Comparisons:       3728 | Array Accesses:      29056 | Recursive Calls:       1022 | Time:      0.102ms
+Selection Sort - Swaps:        1600 | Comparisons:     320400 | Array Accesses:     324400 | Recursive Calls:          0 | Time:      0.335ms
+Insertion Sort - Swaps:         799 | Comparisons:        799 | Array Accesses:       2397 | Recursive Calls:          0 | Time:      0.008ms
+
+
+Sorting Algorithm Test -  Array Type:      Descending | Array Size:        800 | Sample Size:   100
+-----------------------------------------------------------------------------------------------------------------------
+     Heap Sort - Swaps:        7220 | Comparisons:      13886 | Array Accesses:      55853 | Recursive Calls:       6421 | Time:      0.093ms
+    Quick Sort - Swaps:      160399 | Comparisons:     319600 | Array Accesses:     961995 | Recursive Calls:       1598 | Time:      1.277ms
+    Merge Sort - Swaps:        7488 | Comparisons:       4048 | Array Accesses:      30848 | Recursive Calls:       1022 | Time:      0.107ms
+Selection Sort - Swaps:        1600 | Comparisons:     320400 | Array Accesses:     484400 | Recursive Calls:          0 | Time:      0.717ms
+Insertion Sort - Swaps:      320399 | Comparisons:     320399 | Array Accesses:     961197 | Recursive Calls:          0 | Time:      0.726ms
+
+
+Sorting Algorithm Test -  Array Type:          Random | Array Size:        800 | Sample Size:   100
+-----------------------------------------------------------------------------------------------------------------------
+     Heap Sort - Swaps:        7822 | Comparisons:      14602 | Array Accesses:      59696 | Recursive Calls:       7023 | Time:      0.093ms
+    Quick Sort - Swaps:        5052 | Comparisons:       8589 | Array Accesses:      29342 | Recursive Calls:       1084 | Time:      0.098ms
+    Merge Sort - Swaps:        7342 | Comparisons:       6721 | Array Accesses:      35613 | Recursive Calls:       1022 | Time:      0.218ms
+Selection Sort - Swaps:        1600 | Comparisons:     320400 | Array Accesses:     328828 | Recursive Calls:          0 | Time:      0.527ms
+Insertion Sort - Swaps:      160065 | Comparisons:     160065 | Array Accesses:     480196 | Recursive Calls:          0 | Time:      0.482ms
+
+
+Sorting Algorithm Test -  Array Type:       Ascending | Array Size:       1600 | Sample Size:   100
+-----------------------------------------------------------------------------------------------------------------------
+     Heap Sort - Swaps:       18418 | Comparisons:      33800 | Array Accesses:     139673 | Recursive Calls:      16819 | Time:      0.250ms
+    Quick Sort - Swaps:     1280799 | Comparisons:    1279200 | Array Accesses:    6403995 | Recursive Calls:       3198 | Time:      5.677ms
+    Merge Sort - Swaps:       16000 | Comparisons:       8256 | Array Accesses:      64512 | Recursive Calls:       2046 | Time:      0.171ms
+Selection Sort - Swaps:        3200 | Comparisons:    1280800 | Array Accesses:    1288800 | Recursive Calls:          0 | Time:      0.999ms
+Insertion Sort - Swaps:        1599 | Comparisons:       1599 | Array Accesses:       4797 | Recursive Calls:          0 | Time:      0.008ms
+
+
+Sorting Algorithm Test -  Array Type:      Descending | Array Size:       1600 | Sample Size:   100
+-----------------------------------------------------------------------------------------------------------------------
+     Heap Sort - Swaps:       16016 | Comparisons:      30956 | Array Accesses:     124377 | Recursive Calls:      14417 | Time:      0.112ms
+    Quick Sort - Swaps:      640799 | Comparisons:    1279200 | Array Accesses:    3843995 | Recursive Calls:       3198 | Time:      3.613ms
+    Merge Sort - Swaps:       16576 | Comparisons:       8896 | Array Accesses:      68096 | Recursive Calls:       2046 | Time:      0.167ms
+Selection Sort - Swaps:        3200 | Comparisons:    1280800 | Array Accesses:    1928800 | Recursive Calls:          0 | Time:      1.569ms
+Insertion Sort - Swaps:     1280799 | Comparisons:    1280799 | Array Accesses:    3842397 | Recursive Calls:          0 | Time:      1.983ms
+
+
+Sorting Algorithm Test -  Array Type:          Random | Array Size:       1600 | Sample Size:   100
+-----------------------------------------------------------------------------------------------------------------------
+     Heap Sort - Swaps:       17245 | Comparisons:      32412 | Array Accesses:     132205 | Recursive Calls:      15646 | Time:      0.146ms
+    Quick Sort - Swaps:       10950 | Comparisons:      19106 | Array Accesses:      63992 | Recursive Calls:       2168 | Time:      0.132ms
+    Merge Sort - Swaps:       16287 | Comparisons:      15042 | Array Accesses:      79233 | Recursive Calls:       2046 | Time:      0.224ms
+Selection Sort - Swaps:        3200 | Comparisons:    1280800 | Array Accesses:    1298724 | Recursive Calls:          0 | Time:      1.092ms
+Insertion Sort - Swaps:      643190 | Comparisons:     643190 | Array Accesses:    1929571 | Recursive Calls:          0 | Time:      1.038ms
+
+
+Sorting Algorithm Test -  Array Type:       Ascending | Array Size:       3200 | Sample Size:   100
+-----------------------------------------------------------------------------------------------------------------------
+     Heap Sort - Swaps:       40180 | Comparisons:      74074 | Array Accesses:     305669 | Recursive Calls:      36981 | Time:      0.330ms
+    Quick Sort - Swaps:     5121599 | Comparisons:    5118400 | Array Accesses:   25607995 | Recursive Calls:       6398 | Time:     14.832ms
+    Merge Sort - Swaps:       35200 | Comparisons:      18112 | Array Accesses:     141824 | Recursive Calls:       4094 | Time:      0.370ms
+Selection Sort - Swaps:        6400 | Comparisons:    5121600 | Array Accesses:    5137600 | Recursive Calls:          0 | Time:      3.934ms
+Insertion Sort - Swaps:        3199 | Comparisons:       3199 | Array Accesses:       9597 | Recursive Calls:          0 | Time:      0.017ms
+
+
+Sorting Algorithm Test -  Array Type:      Descending | Array Size:       3200 | Sample Size:   100
+-----------------------------------------------------------------------------------------------------------------------
+     Heap Sort - Swaps:       35382 | Comparisons:      68341 | Array Accesses:     275011 | Recursive Calls:      32183 | Time:      0.252ms
+    Quick Sort - Swaps:     2561599 | Comparisons:    5118400 | Array Accesses:   15367995 | Recursive Calls:       6398 | Time:     14.388ms
+    Merge Sort - Swaps:       36352 | Comparisons:      19392 | Array Accesses:     148992 | Recursive Calls:       4094 | Time:      0.326ms
+Selection Sort - Swaps:        6400 | Comparisons:    5121600 | Array Accesses:    7697600 | Recursive Calls:          0 | Time:      6.178ms
+Insertion Sort - Swaps:     5121599 | Comparisons:    5121599 | Array Accesses:   15364797 | Recursive Calls:          0 | Time:      7.817ms
+
+
+Sorting Algorithm Test -  Array Type:          Random | Array Size:       3200 | Sample Size:   100
+-----------------------------------------------------------------------------------------------------------------------
+     Heap Sort - Swaps:       37708 | Comparisons:      71244 | Array Accesses:     290123 | Recursive Calls:      34509 | Time:      0.302ms
+    Quick Sort - Swaps:       24250 | Comparisons:      42539 | Array Accesses:     141708 | Recursive Calls:       4335 | Time:      0.313ms
+    Merge Sort - Swaps:       35776 | Comparisons:      33276 | Array Accesses:     174459 | Recursive Calls:       4094 | Time:      0.589ms
+Selection Sort - Swaps:        6400 | Comparisons:    5121600 | Array Accesses:    5159684 | Recursive Calls:          0 | Time:      4.214ms
+Insertion Sort - Swaps:     2559978 | Comparisons:    2559978 | Array Accesses:    7679935 | Recursive Calls:          0 | Time:      3.962ms
+
+
+Sorting Algorithm Test -  Array Type:       Ascending | Array Size:       6400 | Sample Size:   100
+-----------------------------------------------------------------------------------------------------------------------
+     Heap Sort - Swaps:       86584 | Comparisons:     161041 | Array Accesses:     662019 | Recursive Calls:      80185 | Time:      0.601ms
+    Quick Sort - Swaps:    20483199 | Comparisons:   20476800 | Array Accesses:  102415995 | Recursive Calls:      12798 | Time:     59.442ms
+    Merge Sort - Swaps:       76800 | Comparisons:      39424 | Array Accesses:     309248 | Recursive Calls:       8190 | Time:      0.709ms
+Selection Sort - Swaps:       12800 | Comparisons:   20483200 | Array Accesses:   20515200 | Recursive Calls:          0 | Time:     15.549ms
+Insertion Sort - Swaps:        6399 | Comparisons:       6399 | Array Accesses:      19197 | Recursive Calls:          0 | Time:      0.033ms
+
+
+Sorting Algorithm Test -  Array Type:      Descending | Array Size:       6400 | Sample Size:   100
+-----------------------------------------------------------------------------------------------------------------------
+     Heap Sort - Swaps:       76956 | Comparisons:     149770 | Array Accesses:     600965 | Recursive Calls:      70557 | Time:      0.655ms
+    Quick Sort - Swaps:    10243199 | Comparisons:   20476800 | Array Accesses:   61455995 | Recursive Calls:      12798 | Time:     56.462ms
+    Merge Sort - Swaps:       79104 | Comparisons:      41984 | Array Accesses:     323584 | Recursive Calls:       8190 | Time:      0.697ms
+Selection Sort - Swaps:       12800 | Comparisons:   20483200 | Array Accesses:   30755200 | Recursive Calls:          0 | Time:     24.263ms
+Insertion Sort - Swaps:    20483199 | Comparisons:   20483199 | Array Accesses:   61449597 | Recursive Calls:          0 | Time:     31.218ms
+
+
+Sorting Algorithm Test -  Array Type:          Random | Array Size:       6400 | Sample Size:   100
+-----------------------------------------------------------------------------------------------------------------------
+     Heap Sort - Swaps:       81808 | Comparisons:     155278 | Array Accesses:     631391 | Recursive Calls:      75409 | Time:      0.586ms
+    Quick Sort - Swaps:       52838 | Comparisons:      94033 | Array Accesses:     309721 | Recursive Calls:       8668 | Time:      0.618ms
+    Merge Sort - Swaps:       77954 | Comparisons:      72952 | Array Accesses:     380924 | Recursive Calls:       8190 | Time:      1.182ms
+Selection Sort - Swaps:       12800 | Comparisons:   20483200 | Array Accesses:   20564033 | Recursive Calls:          0 | Time:     16.123ms
+Insertion Sort - Swaps:    10259474 | Comparisons:   10259474 | Array Accesses:   30778423 | Recursive Calls:          0 | Time:     15.656ms
+
+
+Sorting Algorithm Test -  Array Type:       Ascending | Array Size:      12800 | Sample Size:   100
+-----------------------------------------------------------------------------------------------------------------------
+     Heap Sort - Swaps:      185448 | Comparisons:     347738 | Array Accesses:    1424469 | Recursive Calls:     172649 | Time:      1.400ms
+    Quick Sort - Swaps:    81926399 | Comparisons:   81913600 | Array Accesses:  409631995 | Recursive Calls:      25598 | Time:    239.042ms
+    Merge Sort - Swaps:      166400 | Comparisons:      85248 | Array Accesses:     669696 | Recursive Calls:      16382 | Time:      1.330ms
+Selection Sort - Swaps:       25600 | Comparisons:   81926400 | Array Accesses:   81990400 | Recursive Calls:          0 | Time:     61.967ms
+Insertion Sort - Swaps:       12799 | Comparisons:      12799 | Array Accesses:      38397 | Recursive Calls:          0 | Time:      0.065ms
+
+
+Sorting Algorithm Test -  Array Type:      Descending | Array Size:      12800 | Sample Size:   100
+-----------------------------------------------------------------------------------------------------------------------
+     Heap Sort - Swaps:      167008 | Comparisons:     324676 | Array Accesses:    1304585 | Recursive Calls:     154209 | Time:      1.168ms
+    Quick Sort - Swaps:    40966399 | Comparisons:   81913600 | Array Accesses:  245791995 | Recursive Calls:      25598 | Time:    225.947ms
+    Merge Sort - Swaps:      171008 | Comparisons:      90368 | Array Accesses:     698368 | Recursive Calls:      16382 | Time:      1.331ms
+Selection Sort - Swaps:       25600 | Comparisons:   81926400 | Array Accesses:  122950400 | Recursive Calls:          0 | Time:     97.156ms
+Insertion Sort - Swaps:    81926399 | Comparisons:   81926399 | Array Accesses:  245779197 | Recursive Calls:          0 | Time:    125.617ms
+
+
+Sorting Algorithm Test -  Array Type:          Random | Array Size:      12800 | Sample Size:   100
+-----------------------------------------------------------------------------------------------------------------------
+     Heap Sort - Swaps:      176417 | Comparisons:     336168 | Array Accesses:    1365209 | Recursive Calls:     163618 | Time:      2.267ms
+    Quick Sort - Swaps:      116916 | Comparisons:     207335 | Array Accesses:     683674 | Recursive Calls:      17346 | Time:      1.349ms
+    Merge Sort - Swaps:      168701 | Comparisons:     158691 | Array Accesses:     825789 | Recursive Calls:      16382 | Time:      2.282ms
+Selection Sort - Swaps:       25600 | Comparisons:   81926400 | Array Accesses:   82096575 | Recursive Calls:          0 | Time:     63.265ms
+Insertion Sort - Swaps:    40952298 | Comparisons:   40952298 | Array Accesses:  122856895 | Recursive Calls:          0 | Time:     62.698ms
+
+
+Sorting Algorithm Test -  Array Type:       Ascending | Array Size:       5000 | Sample Size:   100
+-----------------------------------------------------------------------------------------------------------------------
+     Heap Sort - Swaps:       65964 | Comparisons:     122221 | Array Accesses:     503299 | Recursive Calls:      60965 | Time:      0.490ms
+    Quick Sort - Swaps:    12502499 | Comparisons:   12497500 | Array Accesses:   62512495 | Recursive Calls:       9998 | Time:     36.343ms
+    Merge Sort - Swaps:       57712 | Comparisons:      29804 | Array Accesses:     232744 | Recursive Calls:       5902 | Time:      0.514ms
+Selection Sort - Swaps:       10000 | Comparisons:   12502500 | Array Accesses:   12527500 | Recursive Calls:          0 | Time:     10.029ms
+Insertion Sort - Swaps:        4999 | Comparisons:       4999 | Array Accesses:      14997 | Recursive Calls:          0 | Time:      0.025ms
+
+
+Sorting Algorithm Test -  Array Type:      Descending | Array Size:       5000 | Sample Size:   100
+-----------------------------------------------------------------------------------------------------------------------
+     Heap Sort - Swaps:       58328 | Comparisons:     113257 | Array Accesses:     454827 | Recursive Calls:      53329 | Time:      0.428ms
+    Quick Sort - Swaps:     6252499 | Comparisons:   12497500 | Array Accesses:   37512495 | Recursive Calls:       9998 | Time:     35.113ms
+    Merge Sort - Swaps:       59760 | Comparisons:      32004 | Array Accesses:     245336 | Recursive Calls:       5902 | Time:      0.451ms
+Selection Sort - Swaps:       10000 | Comparisons:   12502500 | Array Accesses:   18777500 | Recursive Calls:          0 | Time:     14.886ms
+Insertion Sort - Swaps:    12502499 | Comparisons:   12502499 | Array Accesses:   37507497 | Recursive Calls:          0 | Time:     19.104ms
+
+
+Sorting Algorithm Test -  Array Type:          Random | Array Size:       5000 | Sample Size:   100
+-----------------------------------------------------------------------------------------------------------------------
+     Heap Sort - Swaps:       62091 | Comparisons:     117668 | Array Accesses:     478705 | Recursive Calls:      57092 | Time:      0.462ms
+    Quick Sort - Swaps:       39669 | Comparisons:      70463 | Array Accesses:     232528 | Recursive Calls:       6775 | Time:      0.463ms
+    Merge Sort - Swaps:       58736 | Comparisons:      55223 | Array Accesses:     287681 | Recursive Calls:       5902 | Time:      0.769ms
+Selection Sort - Swaps:       10000 | Comparisons:   12502500 | Array Accesses:   12564171 | Recursive Calls:          0 | Time:      9.973ms
+Insertion Sort - Swaps:     6249957 | Comparisons:    6249957 | Array Accesses:   18749871 | Recursive Calls:          0 | Time:     10.380ms
+
+
+Testing Completed In: 134s
+
