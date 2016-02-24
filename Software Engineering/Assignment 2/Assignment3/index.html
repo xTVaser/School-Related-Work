@@ -2,13 +2,13 @@
 <html>
 
 <head>
-        <meta charset="utf-8">
+        <meta charset="utf-8"></meta>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
         <title>Course Conflict Program</title>
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
         <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
         <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-        <script src="db.js" charset="utf-8"></script>
+
 </head>
 
 <body>
@@ -30,31 +30,107 @@
                 <div id="position-header"></div>
 
                 <div data-role="main" class="ui-content">
-                        <ul data-role="listview">
-                                <li>
-                                        <h2>Course 1</h2>
-                                        <p>Course Description</li>
-                                <li>
-                                        <h2>Course 2</h2>
-                                        <p>Course Description</li>
-                                <li>
-                                        <h2>Course 3</h2>
-                                        <p>Course Description</li>
-                        </ul>
 
-                        <form>
-                        <div class="ui-field-contain">
-                        				<label for="submit-1">Send form:</label>
-                        				<input type="submit" id="submit-1" value="Send">
-                        			</div>
-                                        </form>
+                        <form id="formInput" method="post">
+                                <div class="ui-field-contain">
+                                        <label for="courseName">Name of Course:</label>
+                                        <input type="text" name="courseName" id="courseName" placeholder="Software Engineering"/>
+                                </div>
+                                <div class="ui-field-contain">
+                                        <label for="department" class="select">Department:</label>
+                                        <select name="department" id="department">
+                                                <option value="ADMN">ADMN</option>
+                                                <option value="ANIS">ANIS</option>
+                                                <option value="ANTR">ANTR</option>
+                                                <option value="BIOL">BIOL</option>
+                                                <option value="CESD">CESD</option>
+                                                <option value="CHMI">CHMI</option>
+                                                <option value="COOP">COOP</option>
+                                                <option value="COSC">COSC</option>
+                                                <option value="ECON">ECON</option>
+                                                <option value="ENGL">ENGL</option>
+                                                <option value="ENVS">ENVS</option>
+                                                <option value="ESPA">ESPA</option>
+                                                <option value="FILM">FILM</option>
+                                                <option value="FREN">FREN</option>
+                                                <option value="GEOG">GEOG</option>
+                                                <option value="GEOL">GEOL</option>
+                                                <option value="HIST">HIST</option>
+                                                <option value="ITAL">ITAL</option>
+                                                <option value="ITEC">ITEC</option>
+                                                <option value="JURI">JURI</option>
+                                                <option value="MATH">MATH</option>
+                                                <option value="MUSC">MUSC</option>
+                                                <option value="OJIB">OJIB</option>
+                                                <option value="PHIL">PHIL</option>
+                                                <option value="PHYS">PHYS</option>
+                                                <option value="POLI">POLI</option>
+                                                <option value="PSYC">PSYC</option>
+                                                <option value="SOCI">SOCI</option>
+                                                <option value="STAT">STAT</option>
+                                                <option value="SWRK">SWRK</option>
+                                                <option value="VISA">VISA</option>
+                                        </select>
+                                </div>
+                                <div class="ui-field-contain">
+                                        <label for="courseCode">Course Code:</label>
+                                        <input type="number" name="courseCode" id="courseCode" placeholder="3506"/>
+                                </div>
+                                <div class="ui-grid-a">
+                                        <div class="ui-block-a" style="padding-right: 30px">
+                                                <label for="startTime">Start Time:</label>
+                                                <input type="time" id="startTime" name="startTime"/>
+                                        </div>
+                                        <div class="ui-block-b">
+                                                <label for="endTime">End Time:</label>
+                                                <input type="time" id="endTime" name="endTime"/>
+                                        </div>
+                                </div>
+
+                                <fieldset data-role="controlgroup" data-type="horizontal">
+                                        <legend>Days of the Week</legend>
+                                        <input name="sunday" id="sunday" type="checkbox"/>
+                                        <label for="sunday">Sunday</label>
+                                        <input name="monday" id="monday" type="checkbox"/>
+                                        <label for="monday">Monday</label>
+                                        <input name="tuesday" id="tuesday" type="checkbox"/>
+                                        <label for="tuesday">Tuesday</label>
+                                        <input name="wednesday" id="wednesday" type="checkbox"/>
+                                        <label for="wednesday">Wednesday</label>
+                                        <input name="thursday" id="thursday" type="checkbox"/>
+                                        <label for="thursday">Thursday</label>
+                                        <input name="friday" id="friday" type="checkbox"/>
+                                        <label for="friday">Friday</label>
+                                        <input name="saturday" id="saturday" type="checkbox"/>
+                                        <label for="saturday">Saturday</label>
+                                </fieldset>
+
+                                <div class="ui-field-contain">
+                                        <label for="room" class="select">Room:</label>
+                                        <select name="room" id="room" value="EW">
+                                                <option value="EW">EW</option>
+                                                <option value="NW">NW</option>
+                                                <option value="CC">CC</option>
+                                                <option value="WW">WW</option>
+                                                <option value="SH">SH</option>
+                                        </select>
+                                </div>
+
+                                <div class="ui-field-contain">
+                                        <label for="roomNumber">Room Number:</label>
+                                        <input type="number" id="roomNumber" name="roomNumber" placeholder="405"/>
+                                </div>
+
+                                <div class="ui-field-contain">
+        				<button type="button" name="submit" id="submit" onclick="getData()">Submit</button>
+        			</div>
+                        </form>
+                        <footer data-role="footer" data-position="fixed">
+                                <h1></h1>
+                                <h6>Tyler Wilding - COSC 3506</h6>
+                        </footer>
                 </div>
-
-                <footer data-role="footer" data-theme="b" data-position="fixed">
-                        <h1>Tyler Wilding - COSC3506</h1>
-                </footer>
         </div>
-
         <!-- Add course page -->
         <div data-role="page" id="courseList">
                 <header data-role="header">
@@ -72,11 +148,9 @@
                 <div data-role="main" class="ui-content">
                         <ul data-role="listview">
                                 <li>
-                                        <h2>Course 1</h2>
-                                        <p>Course Description</li>
+                                        <h2>Course 1</h2></li>
                                 <li>
-                                        <h2>Course 3</h2>
-                                        <p>Course Description</li>
+                                        <h2>Course 3</h2></li>
                         </ul>
                 </div>
 
@@ -103,11 +177,9 @@
                 <div data-role="main" class="ui-content">
                         <ul data-role="listview">
                                 <li>
-                                        <h2>Course 1</h2>
-                                        <p>Course Description</li>
+                                        <h2>Course 1</h2></li>
                                 <li>
-                                        <h2>Course 3</h2>
-                                        <p>Course Description</li>
+                                        <h2>Course 3</h2></li>
                         </ul>
                 </div>
 
@@ -117,7 +189,6 @@
                 </footer>
         </div>
 
-
+        <script src="js/database.js" charset="utf-8"></script>
 </body>
-
 </html>
