@@ -1,5 +1,10 @@
 var database;
-openDatabase();
+
+function init() {
+
+        openDatabase();
+}
+
 function openDatabase() {
         var request = indexedDB.open('Course Program', 3);
 
@@ -9,6 +14,7 @@ function openDatabase() {
         request.onsuccess = function(event) {
                 database = this.result;
                 console.log("Database Created");
+                populateCourses();
         }
         request.onupgradeneeded = function(event) {
                 database = event.target.result;
@@ -22,15 +28,19 @@ function openDatabase() {
                 store.createIndex('room', 'room', { unique:false });
                 store.createIndex('room_number', 'room_number', { unique:false });
         };
+
+
 }
 
-function getObjectStore() {
-        var transaction = database.transaction('Courses', 'readwrite');
-        return transaction.objectStore('Courses');
+function getObjectStore(type) {
+        if (database != undefined) {
+                var transaction = database.transaction('Courses', type);
+                return transaction.objectStore('Courses');
+        }
 }
 
 function clearObjectStore() {
-        var store = getObjectStore();
+        var store = getObjectStore('readwrite');
         var request = store.clear();
         request.onsuccess = function(event) {
                 console.log("Database Cleared");
@@ -54,13 +64,14 @@ function addRow(courseCode, department, courseName, startTime, endTime, weekDays
                 room_number: roomNumber
         }
 
-        var store = getObjectStore('Courses', 'readwrite');
+        var store = getObjectStore('readwrite');
         var request;
 
         request = store.add(obj);
 
         request.onsuccess = function(event) {
                 console.log("Insertion Successful");
+                populateCourses();
         };
         request.onerror = function(event) {
                 console.log("Failed"+this.error);
@@ -82,7 +93,31 @@ function getData() {
         var friday = $('#friday').is(':checked');
         var saturday = $('#saturday').is(':checked');
         var room = $('#room').val();
-        var roomNumber = $('roomNumber').val();
+        var roomNumber = $('#roomNumber').val();
+
+        var weekDays = "";
+
+        if(sunday) {
+                weekDays += "Sunday ";
+        }
+        if(monday) {
+                weekDays += "Monday ";
+        }
+        if(tuesday) {
+                weekDays += "Tuesday ";
+        }
+        if(wednesday) {
+                weekDays += "Wednesday ";
+        }
+        if(thursday) {
+                weekDays += "Thursday ";
+        }
+        if(friday) {
+                weekDays += "Friday ";
+        }
+        if(saturday) {
+                weekDays += "Saturday";
+        }
 
         console.log(courseName);
         console.log(department);
@@ -98,11 +133,51 @@ function getData() {
         console.log(saturday);
         console.log(room);
         console.log(roomNumber);
+        console.log(weekDays);
 
         document.getElementById('formInput').reset();
         window.location.replace("#courseList");
 
         if(database != undefined) {
-                addRow('2007', 'COSC', 'Data Structures 1', '1:00pm', '2:30pm', 'Monday, Wednesday', null, '200');
+                addRow(courseCode, department, courseName, startTime, endTime, weekDays, room, roomNumber);
         }
+}
+
+function populateCourses() {
+
+        console.log("Printing Courses");
+
+        var store = getObjectStore('readonly');
+
+        var list = $('#courseListings');
+        list.empty();
+
+        var request;
+        request = store.openCursor();
+        request.onsuccess = function(event) {
+
+                var cursor = event.target.result;
+
+                if(cursor) {
+                        console.log("Printing:",cursor);
+                        request = store.get(cursor.key);
+                        request.onsuccess = function(event) {
+
+                                var value = event.target.result;
+                                var listItem = $('<li class=\"ui-li-static ui-body-inherit ui-first-child\"><h2>'+cursor.key+'Course Code:'+value.course_code+'</h2></li>');
+
+                                list.append(listItem);
+                        };
+
+                        cursor.continue();
+                }
+                else {
+                        console.log("No more entries");
+                }
+        };
+}
+
+function appendToList(content, array) {
+
+        $("#courseListings").append("<li class=\"ui-li-static ui-body-inherit ui-first-child\"><h2>"+content+"</h2></li>")
 }

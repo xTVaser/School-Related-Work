@@ -8,10 +8,14 @@
         <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
         <script src="js/jquery-1.11.1.min.js"></script>
         <script src="js/jquery.mobile-1.4.5.min.js"></script>
+        <link rel="stylesheet" href="css/customCSS.css" />
+
+        <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
+        <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 
 </head>
 
-<body>
+<body onload="init()">
 
         <!-- Course index page -->
         <div data-role="page" id="index">
@@ -120,11 +124,12 @@
 
                                 <div class="ui-field-contain">
                                         <label for="roomNumber">Room Number:</label>
-                                        <input type="number" id="roomNumber" name="roomNumber" placeholder="405"/>
+                                        <input type="number" id="roomNumber" name="roomNumber" placeholdeSr="405"/>
                                 </div>
 
                                 <div class="ui-field-contain">
-        				<button type="button" name="submit" id="submit" onclick="getData()">Submit</button>
+        				<button type="button" name="submit" id="submit" onclick="getData()" style="background-color: #aaf587;
+                                        border-color: #aaaaaa;">Submit</button>
         			</div>
                         </form>
                         <footer data-role="footer" data-position="fixed">
@@ -133,7 +138,8 @@
                         </footer>
                 </div>
         </div>
-        <!-- Add course page -->
+
+        <!-- Course Listing Page -->
         <div data-role="page" id="courseList">
                 <header data-role="header">
                         <h1>Course Conflict Program</h1>
@@ -148,13 +154,15 @@
                 </nav>
 
                 <div data-role="main" class="ui-content">
-                        <ul data-role="listview">
-                                <li>
-                                        <h2>Course 1</h2></li>
-                                <li>
-                                        <h2>Course 3</h2></li>
+                        <ul data-role="listview" id="courseListings">
+
                         </ul>
                 </div>
+                <br>
+                <div>
+                        <button type="button" class="ui-btn ui-corner-all" onclick="clearObjectStore()" style="background-color:#ff9090; border-color:#aaaaaa; width:50%; margin: 0 auto;">Clear all Courses</button>
+                </div>
+
 
                 <footer data-role="footer" data-position="fixed">
                         <h6>Tyler Wilding - COSC 3506</h6>
