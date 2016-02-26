@@ -12,7 +12,7 @@
 
         <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
         <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-
+                <script src="js/database.js" charset="utf-8"></script>
 </head>
 
 <body onload="init()">
@@ -26,7 +26,7 @@
                 <nav data-role="navbar">
                         <ul>
                                 <li><a href="#index" class="ui-btn ui-btn-b" data-icon="plus">Add a Course</a></li>
-                                <li><a href="#courseList" class="ui-btn ui-btn-b" data-icon="bars">Course List</a></li>
+                                <li><a href="#courseList" class="ui-btn ui-btn-b" data-icon="bars" onclick="loadListPage()">Course List</a></li>
                                 <li><a href="#courseConflicts" class="ui-btn ui-btn-b" data-icon="bars">Course Conflicts</a></li>
                         </ul>
                 </nav>
@@ -178,17 +178,13 @@
                 <nav data-role="navbar">
                         <ul>
                                 <li><a href="#index" class="ui-btn ui-btn-b" data-icon="plus">Add a Course</a></li>
-                                <li><a href="#courseList" class="ui-btn ui-btn-b" data-icon="bars">Course List</a></li>
+                                <li><a href="#courseList" class="ui-btn ui-btn-b" data-icon="bars" onclick="loadListPage()">Course List</a></li>
                                 <li><a href="#courseConflicts" class="ui-btn ui-btn-b" data-icon="bars">Course Conflicts</a></li>
                         </ul>
                 </nav>
 
                 <div data-role="main" class="ui-content">
                         <ul data-role="listview">
-                                <li>
-                                        <h2>Course 1</h2></li>
-                                <li>
-                                        <h2>Course 3</h2></li>
                         </ul>
                 </div>
 
@@ -197,6 +193,6 @@
                 </footer>
         </div>
 
-        <script src="js/database.js" charset="utf-8"></script>
+
 </body>
 </html>

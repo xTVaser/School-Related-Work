@@ -1,4 +1,5 @@
 var database;
+var conflicts = [];
 
 function init() {
 
@@ -44,6 +45,7 @@ function clearObjectStore() {
         var request = store.clear();
         request.onsuccess = function(event) {
                 console.log("Database Cleared");
+                window.location.reload();
         };
         request.onerror = function(event) {
                 console.log("Database Cant be Cleared");
@@ -163,8 +165,15 @@ function populateCourses() {
                         request = store.get(cursor.key);
                         request.onsuccess = function(event) {
 
+                                //<h2>Data Structures II - COSC 2007</h2>
+                                //<b>2:30pm - 4:00pm </b>Monday Wednesday<br>
+                                //<i>NW 200</i>
                                 var value = event.target.result;
-                                var listItem = $('<li class=\"ui-li-static ui-body-inherit ui-first-child\"><h2>'+cursor.key+'Course Code:'+value.course_code+'</h2></li>');
+                                var listItem = $('<li class=\"ui-li-static ui-body-inherit ui-first-child\">'+
+                                                        '<h2>'+value.course_name+' - '+value.department+' '+value.course_code+'</h2>'+
+                                                        '<b>'+value.start_time+' - '+value.end_time+' </b>'+value.weekdays+'<br>'+
+                                                        '<i>'+value.room+' '+value.room_number+'</i>'+
+                                                  '</li>');
 
                                 list.append(listItem);
                         };
@@ -177,6 +186,16 @@ function populateCourses() {
         };
 }
 
+function loadListPage() {
+        window.location.replace("#courseList");
+        window.location.reload();
+}
+
+function populateConflicts() {
+
+        console.log("Conflicts:");
+        console.log(conflicts);
+}
 function appendToList(content, array) {
 
         $("#courseListings").append("<li class=\"ui-li-static ui-body-inherit ui-first-child\"><h2>"+content+"</h2></li>")
