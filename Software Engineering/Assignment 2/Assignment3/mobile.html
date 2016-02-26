@@ -27,7 +27,6 @@
                         <ul>
                                 <li><a href="#index" class="ui-btn ui-btn-b" data-icon="plus">Add a Course</a></li>
                                 <li><a href="#courseList" class="ui-btn ui-btn-b" data-icon="bars" onclick="loadListPage()">Course List</a></li>
-                                <li><a href="#courseConflicts" class="ui-btn ui-btn-b" data-icon="bars">Course Conflicts</a></li>
                         </ul>
                 </nav>
 
@@ -83,12 +82,12 @@
                                 </div>
                                 <div class="ui-grid-a">
                                         <div class="ui-block-a" style="padding-right: 30px">
-                                                <label for="startTime">Start Time:</label>
-                                                <input type="time" id="startTime" name="startTime"/>
+                                                <label for="startTime">Start Time: (ex. 1:00pm)</label>
+                                                <input type="text" id="startTime" name="startTime"/>
                                         </div>
                                         <div class="ui-block-b">
-                                                <label for="endTime">End Time:</label>
-                                                <input type="time" id="endTime" name="endTime"/>
+                                                <label for="endTime">End Time: (ex. 1:00pm)</label>
+                                                <input type="text" id="endTime" name="endTime"/>
                                         </div>
                                 </div>
 
@@ -149,7 +148,6 @@
                         <ul>
                                 <li><a href="#index" class="ui-btn ui-btn-b" data-icon="plus">Add a Course</a></li>
                                 <li><a href="#courseList" class="ui-btn ui-btn-b" data-icon="bars">Course List</a></li>
-                                <li><a href="#courseConflicts" class="ui-btn ui-btn-b" data-icon="bars">Course Conflicts</a></li>
                         </ul>
                 </nav>
 
@@ -168,31 +166,5 @@
                         <h6>Tyler Wilding - COSC 3506</h6>
                 </footer>
         </div>
-
-        <!-- Add course page -->
-        <div data-role="page" id="courseConflicts">
-                <header data-role="header">
-                        <h1>Course Conflict Program</h1>
-                </header>
-
-                <nav data-role="navbar">
-                        <ul>
-                                <li><a href="#index" class="ui-btn ui-btn-b" data-icon="plus">Add a Course</a></li>
-                                <li><a href="#courseList" class="ui-btn ui-btn-b" data-icon="bars" onclick="loadListPage()">Course List</a></li>
-                                <li><a href="#courseConflicts" class="ui-btn ui-btn-b" data-icon="bars">Course Conflicts</a></li>
-                        </ul>
-                </nav>
-
-                <div data-role="main" class="ui-content">
-                        <ul data-role="listview">
-                        </ul>
-                </div>
-
-                <footer data-role="footer" data-position="fixed">
-                        <h6>Tyler Wilding - COSC 3506</h6>
-                </footer>
-        </div>
-
-
 </body>
 </html>

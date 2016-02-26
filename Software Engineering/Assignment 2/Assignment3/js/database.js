@@ -16,6 +16,7 @@ function openDatabase() {
                 database = this.result;
                 console.log("Database Created");
                 populateCourses();
+                populateConflicts();
         }
         request.onupgradeneeded = function(event) {
                 database = event.target.result;
@@ -29,8 +30,6 @@ function openDatabase() {
                 store.createIndex('room', 'room', { unique:false });
                 store.createIndex('room_number', 'room_number', { unique:false });
         };
-
-
 }
 
 function getObjectStore(type) {
@@ -74,6 +73,7 @@ function addRow(courseCode, department, courseName, startTime, endTime, weekDays
         request.onsuccess = function(event) {
                 console.log("Insertion Successful");
                 populateCourses();
+                populateConflicts();
         };
         request.onerror = function(event) {
                 console.log("Failed"+this.error);
@@ -165,17 +165,33 @@ function populateCourses() {
                         request = store.get(cursor.key);
                         request.onsuccess = function(event) {
 
-                                //<h2>Data Structures II - COSC 2007</h2>
-                                //<b>2:30pm - 4:00pm </b>Monday Wednesday<br>
-                                //<i>NW 200</i>
-                                var value = event.target.result;
-                                var listItem = $('<li class=\"ui-li-static ui-body-inherit ui-first-child\">'+
-                                                        '<h2>'+value.course_name+' - '+value.department+' '+value.course_code+'</h2>'+
-                                                        '<b>'+value.start_time+' - '+value.end_time+' </b>'+value.weekdays+'<br>'+
-                                                        '<i>'+value.room+' '+value.room_number+'</i>'+
-                                                  '</li>');
+                                var allTheItems;
+                                store.getAll().onsuccess = function(evt) {
+                                        console.log(evt.target.result);
+                                        allTheItems = evt.target.result;
 
-                                list.append(listItem);
+                                        console.log(allTheItems[0]);
+
+                                        //Loop through all the items in the database
+                                                //If it is itself, skip it.
+                                                //Else, see if it has the same start andor endtime on any of thhe same days.
+                                                        //If so, we will add the list item with a red background.
+                                                        //Break out of the Loop
+                                                        
+
+
+                                        //<h2>Data Structures II - COSC 2007</h2>
+                                        //<b>2:30pm - 4:00pm </b>Monday Wednesday<br>
+                                        //<i>NW 200</i>
+                                        var value = event.target.result;
+                                        var listItem = $('<li class=\"ui-li-static ui-body-inherit ui-first-child\">'+
+                                                                '<h2>'+value.course_name+' - '+value.department+' '+value.course_code+'</h2>'+
+                                                                '<b>'+value.start_time+' - '+value.end_time+' </b>'+value.weekdays+'<br>'+
+                                                                '<i>'+value.room+' '+value.room_number+'</i>'+
+                                                          '</li>');
+
+                                        list.append(listItem);
+                                };
                         };
 
                         cursor.continue();
@@ -194,7 +210,6 @@ function loadListPage() {
 function populateConflicts() {
 
         console.log("Conflicts:");
-        console.log(conflicts);
 }
 function appendToList(content, array) {
 
