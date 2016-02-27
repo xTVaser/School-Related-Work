@@ -21,25 +21,28 @@ public class JohnsonTrotter {
         //Get user input as a string so we can easily get individual digits.
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter an integer: ");
-        String number = Integer.toString(scanner.nextInt());
+        String number = scanner.next();
 
         Element[] elements = new Element[number.length()];
 
         //Add said digits to the array
         for(int i = 0; i < number.length(); i++) {
 
-            elements[i] = new Element(Integer.parseInt(number.charAt(i)+""));
+            elements[i] = new Element(Integer.parseInt(Character.toString(number.charAt(i))));
         }
 
+        long startTime = System.currentTimeMillis();
         //Call the algorithm function
         johnsonTrotter(elements);
+        long endTime = System.currentTimeMillis()-startTime;
 
         //Print out the permutations
-        System.out.println("Number of Permutations: "+permutations.size()+"\n");
         for(int i = 0; i < permutations.size(); i++) {
             System.out.print(i+1+") ");
             System.out.println(permutations.get(i));
         }
+        System.out.println("Number of Permutations: "+permutations.size());
+        System.out.println("Time Taken: "+endTime/1000.0+" seconds");
     }
 
     /**
