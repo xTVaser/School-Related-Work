@@ -1,0 +1,34 @@
+body,
+label,
+input,
+select {
+    font-family: 'Abel', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.ui-btn {
+    font-family: 'Abel', sans-serif;
+}
+
+legend {
+	display: block;
+	width: 100%;
+	padding: 0;
+	margin-bottom: 0px;
+	font-size: 16px;
+	line-height: inherit;
+	color: #333;
+	border: 0;
+	/* border-bottom: 1px solid #e5e5e5; */
+}
