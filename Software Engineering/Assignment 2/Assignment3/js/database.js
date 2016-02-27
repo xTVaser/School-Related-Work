@@ -119,28 +119,65 @@ function getData() {
                 weekDays += "Saturday";
         }
 
-        console.log(courseName);
-        console.log(department);
-        console.log(courseCode);
-        console.log(startTime);
-        console.log(endTime);
-        console.log(sunday);
-        console.log(monday);
-        console.log(tuesday);
-        console.log(wednesday);
-        console.log(thursday);
-        console.log(friday);
-        console.log(saturday);
-        console.log(room);
-        console.log(roomNumber);
-        console.log(weekDays);
+        var errorMessage = "<br>";
+        var valid = true;
 
+        var regex = /[^a-zA-Z\d\s]/;
+        if(courseName == "" || regex.exec(courseName)) {
+                valid = false;
+                errorMessage += "Invalid Course Name<br>";
+        }
 
+        if(department == "Select Department") {
+                valid = false;
+                errorMessage += "Pick a Department<br>";
+        }
 
-        if(database != undefined) {
+        regex = /^(\d{4})$/;
+        if(courseCode == "" || !regex.exec(courseCode)) {
+                valid = false;
+                errorMessage += "Invalid Course Code<br>";
+        }
+
+        regex = /^(\d*\d\:\d\d)((pm)|(am))$/;
+        if(startTime == "" || !regex.exec(startTime)) {
+                valid = false;
+                errorMessage += "Invalid Start Time<br>";
+        }
+        if(endTime == "" || !regex.exec(endTime)) {
+                valid = false;
+                errorMessage += "Invalid End Time<br>";
+        }
+
+        if(weekDays == "") {
+                valid = false;
+                errorMessage += "Please Select one or More days of the Week<br>";
+        }
+
+        if(room == "Select Room") {
+                valid = false;
+                errorMessage += "Please Select a Room<br>";
+        }
+        regex = /^(\d{3})$/;
+        if(roomNumber == "" || !regex.exec(roomNumber)) {
+                valid = false;
+                errorMessage += "Invalid Room Number<br>";
+        }
+
+        if(database != undefined && valid == true) {
                 document.getElementById('formInput').reset();
                 window.location.replace("#courseList");
                 addRow(courseCode, department, courseName, startTime, endTime, weekDays, room, roomNumber);
+        }
+        else {
+                var insertLocation = $('#formInput');
+
+                var alert = $('<div class="alert alert-danger fade in">'+
+                                '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>'+
+                                '<strong>Error!</strong> '+errorMessage+
+                                '</div>');
+
+                insertLocation.append(alert);
         }
 }
 

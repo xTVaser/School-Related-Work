@@ -6,9 +6,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
         <title>Course Conflict Program</title>
         <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
-        
+        <link rel="stylesheet" href="css/bootstrap.min.css" />
+
         <script src="js/jquery-1.11.1.min.js"></script>
         <script src="js/jquery.mobile-1.4.5.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="css/customCSS.css" />
 
         <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
@@ -38,7 +40,7 @@
                         <form id="formInput" method="post">
                                 <div class="ui-field-contain">
                                         <label for="courseName">Name of Course:</label>
-                                        <input type="text" name="courseName" id="courseName" placeholder="Software Engineering"/>
+                                        <input type="text" name="courseName" id="courseName" placeholder="Software Engineering" />
                                 </div>
                                 <div class="ui-field-contain">
                                         <label for="department" class="select">Department:</label>
@@ -79,34 +81,34 @@
                                 </div>
                                 <div class="ui-field-contain">
                                         <label for="courseCode">Course Code:</label>
-                                        <input type="number" name="courseCode" id="courseCode" placeholder="3506"/>
+                                        <input type="number" name="courseCode" id="courseCode" placeholder="3506" />
                                 </div>
                                 <div class="ui-grid-a">
                                         <div class="ui-block-a" style="padding-right: 30px">
                                                 <label for="startTime">Start Time: (ex. 1:00pm)</label>
-                                                <input type="text" id="startTime" name="startTime"/>
+                                                <input type="text" id="startTime" name="startTime" />
                                         </div>
                                         <div class="ui-block-b">
                                                 <label for="endTime">End Time: (ex. 1:00pm)</label>
-                                                <input type="text" id="endTime" name="endTime"/>
+                                                <input type="text" id="endTime" name="endTime" />
                                         </div>
                                 </div>
 
                                 <fieldset data-role="controlgroup" data-type="horizontal">
                                         <legend>Days of the Week</legend>
-                                        <input name="sunday" id="sunday" type="checkbox"/>
+                                        <input name="sunday" id="sunday" type="checkbox" />
                                         <label for="sunday">Sunday</label>
-                                        <input name="monday" id="monday" type="checkbox"/>
+                                        <input name="monday" id="monday" type="checkbox" />
                                         <label for="monday">Monday</label>
-                                        <input name="tuesday" id="tuesday" type="checkbox"/>
+                                        <input name="tuesday" id="tuesday" type="checkbox" />
                                         <label for="tuesday">Tuesday</label>
-                                        <input name="wednesday" id="wednesday" type="checkbox"/>
+                                        <input name="wednesday" id="wednesday" type="checkbox" />
                                         <label for="wednesday">Wednesday</label>
-                                        <input name="thursday" id="thursday" type="checkbox"/>
+                                        <input name="thursday" id="thursday" type="checkbox" />
                                         <label for="thursday">Thursday</label>
-                                        <input name="friday" id="friday" type="checkbox"/>
+                                        <input name="friday" id="friday" type="checkbox" />
                                         <label for="friday">Friday</label>
-                                        <input name="saturday" id="saturday" type="checkbox"/>
+                                        <input name="saturday" id="saturday" type="checkbox" />
                                         <label for="saturday">Saturday</label>
                                 </fieldset>
 
@@ -124,13 +126,15 @@
 
                                 <div class="ui-field-contain">
                                         <label for="roomNumber">Room Number:</label>
-                                        <input type="number" id="roomNumber" name="roomNumber" placeholdeSr="405"/>
+                                        <input type="number" id="roomNumber" name="roomNumber" placeholdeSr="405" />
                                 </div>
 
                                 <div class="ui-field-contain">
-        				<button type="button" name="submit" id="submit" onclick="getData()" style="background-color: #aaf587;
+                                        <button type="button" name="submit" id="submit" onclick="getData()" style="background-color: #aaf587;
                                         border-color: #aaaaaa;">Submit</button>
-        			</div>
+                                </div>
+
+                                
                         </form>
                         <footer data-role="footer" data-position="fixed">
                                 <h6>Tyler Wilding - COSC 3506</h6>
@@ -167,4 +171,5 @@
                 </footer>
         </div>
 </body>
+
 </html>
