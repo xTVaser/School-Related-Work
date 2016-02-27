@@ -177,9 +177,31 @@ function populateCourses() {
                                                 }
                                                 else if(allTheItems[i].start_time == value.start_time) {
 
-                                                        console.log(allTheItems[i].weekdays.indexOf('Monday'))
-                                                        console.log(value.weekdays.indexOf('Monday'));
+                                                        if(allTheItems[i].weekdays.indexOf('Sunday') >= 0 && value.weekdays.indexOf('Sunday') >= 0) {
+                                                                conflictColor = '#ff9090';
+                                                                console.log("Found a conflict");
+                                                        }
                                                         if(allTheItems[i].weekdays.indexOf('Monday') >= 0 && value.weekdays.indexOf('Monday') >= 0) {
+                                                                conflictColor = '#ff9090';
+                                                                console.log("Found a conflict");
+                                                        }
+                                                        if(allTheItems[i].weekdays.indexOf('Tuesday') >= 0 && value.weekdays.indexOf('Tuesday') >= 0) {
+                                                                conflictColor = '#ff9090';
+                                                                console.log("Found a conflict");
+                                                        }
+                                                        if(allTheItems[i].weekdays.indexOf('Wednesday') >= 0 && value.weekdays.indexOf('Wednesday') >= 0) {
+                                                                conflictColor = '#ff9090';
+                                                                console.log("Found a conflict");
+                                                        }
+                                                        if(allTheItems[i].weekdays.indexOf('Thursday') >= 0 && value.weekdays.indexOf('Thursday') >= 0) {
+                                                                conflictColor = '#ff9090';
+                                                                console.log("Found a conflict");
+                                                        }
+                                                        if(allTheItems[i].weekdays.indexOf('Friday') >= 0 && value.weekdays.indexOf('Friday') >= 0) {
+                                                                conflictColor = '#ff9090';
+                                                                console.log("Found a conflict");
+                                                        }
+                                                        if(allTheItems[i].weekdays.indexOf('Saturday') >= 0 && value.weekdays.indexOf('Saturday') >= 0) {
                                                                 conflictColor = '#ff9090';
                                                                 console.log("Found a conflict");
                                                         }
