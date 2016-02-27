@@ -16,7 +16,6 @@ function openDatabase() {
                 database = this.result;
                 console.log("Database Created");
                 populateCourses();
-                populateConflicts();
         }
         request.onupgradeneeded = function(event) {
                 database = event.target.result;
@@ -73,7 +72,6 @@ function addRow(courseCode, department, courseName, startTime, endTime, weekDays
         request.onsuccess = function(event) {
                 console.log("Insertion Successful");
                 populateCourses();
-                populateConflicts();
         };
         request.onerror = function(event) {
                 console.log("Failed"+this.error);
@@ -137,17 +135,16 @@ function getData() {
         console.log(roomNumber);
         console.log(weekDays);
 
-        document.getElementById('formInput').reset();
-        window.location.replace("#courseList");
+
 
         if(database != undefined) {
+                document.getElementById('formInput').reset();
+                window.location.replace("#courseList");
                 addRow(courseCode, department, courseName, startTime, endTime, weekDays, room, roomNumber);
         }
 }
 
 function populateCourses() {
-
-        console.log("Printing Courses");
 
         var store = getObjectStore('readonly');
 
@@ -161,30 +158,41 @@ function populateCourses() {
                 var cursor = event.target.result;
 
                 if(cursor) {
-                        console.log("Printing:",cursor);
                         request = store.get(cursor.key);
                         request.onsuccess = function(event) {
 
                                 var allTheItems;
                                 store.getAll().onsuccess = function(evt) {
-                                        console.log(evt.target.result);
+
+                                        var value = event.target.result;
+                                        console.log(value);
+
                                         allTheItems = evt.target.result;
 
-                                        console.log(allTheItems[0]);
+                                        var conflictColor = '';
+                                        for (var i = 0; i < allTheItems.length; i++) {
 
-                                        //Loop through all the items in the database
-                                                //If it is itself, skip it.
-                                                //Else, see if it has the same start andor endtime on any of thhe same days.
-                                                        //If so, we will add the list item with a red background.
-                                                        //Break out of the Loop
-                                                        
+                                                if(allTheItems[i].course_code == value.course_code && allTheItems[i].department == value.department) {
+                                                        //Do nothing
+                                                }
+                                                else if(allTheItems[i].start_time == value.start_time) {
+
+                                                        console.log(allTheItems[i].weekdays.indexOf('Monday'))
+                                                        console.log(value.weekdays.indexOf('Monday'));
+                                                        if(allTheItems[i].weekdays.indexOf('Monday') >= 0 && value.weekdays.indexOf('Monday') >= 0) {
+                                                                conflictColor = '#ff9090';
+                                                                console.log("Found a conflict");
+                                                        }
+
+                                                }
+                                        }
 
 
                                         //<h2>Data Structures II - COSC 2007</h2>
                                         //<b>2:30pm - 4:00pm </b>Monday Wednesday<br>
                                         //<i>NW 200</i>
-                                        var value = event.target.result;
-                                        var listItem = $('<li class=\"ui-li-static ui-body-inherit ui-first-child\">'+
+
+                                        var listItem = $('<li class=\"ui-li-static ui-body-inherit ui-first-child\" style=\"background-color:'+conflictColor+'\">'+
                                                                 '<h2>'+value.course_name+' - '+value.department+' '+value.course_code+'</h2>'+
                                                                 '<b>'+value.start_time+' - '+value.end_time+' </b>'+value.weekdays+'<br>'+
                                                                 '<i>'+value.room+' '+value.room_number+'</i>'+
@@ -207,10 +215,6 @@ function loadListPage() {
         window.location.reload();
 }
 
-function populateConflicts() {
-
-        console.log("Conflicts:");
-}
 function appendToList(content, array) {
 
         $("#courseListings").append("<li class=\"ui-li-static ui-body-inherit ui-first-child\"><h2>"+content+"</h2></li>")
