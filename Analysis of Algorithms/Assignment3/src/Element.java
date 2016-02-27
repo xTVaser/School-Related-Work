@@ -1,5 +1,6 @@
 /**
- * Created by tyler on 26/02/16.
+ * Author - Tyler Wilding
+ * Description - Small object to store the direction, mobility, and the item itself.
  */
 public class Element {
 

@@ -1,7 +1,8 @@
 import java.util.ArrayList;
 
 /**
- * Created by tyler on 26/02/16.
+ * Author - Tyler Wilding
+ * Description - Node class to hold the name of the course, and the courses that it is a prerequsite to.
  */
 public class Node {
 
@@ -18,10 +19,10 @@ public class Node {
         return course;
     }
 
-    public void setCourse(String course) {
-        this.course = course;
-    }
-
+    /**
+     * Adds the item to the prereq. arraylist
+     * @param course Node to be added
+     */
     public void addPrereq(Node course) {
 
         prereq.add(course);
