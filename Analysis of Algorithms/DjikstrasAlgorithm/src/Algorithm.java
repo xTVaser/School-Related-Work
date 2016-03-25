@@ -3,6 +3,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.PriorityQueue;
+import java.util.Scanner;
 
 /**
  * Author - Tyler Wilding
@@ -20,12 +21,11 @@ public class Algorithm {
     public static void main(String[] args) throws Exception {
 
         //Read the entire file in at once and split on new line characters.
-        String inputString = new String(Files.readAllBytes(Paths.get("input.txt")));
+        String inputString = new String(Files.readAllBytes(Paths.get("input2.txt")));
         String[] inputArray = inputString.split("\n");
 
         //Once we have that, we can now grab the number of nodes and the source node information.
         int numberOfNodes = Integer.parseInt(inputArray[0]);
-        int startNode = 2;
 
         //Initialize an array to hold the nodes, we begin to create the adjacency list.
         Node[] nodes = new Node[numberOfNodes];
@@ -36,25 +36,85 @@ public class Algorithm {
         //Pass the text file information to a method to make the code appear less terrible.
         getNodeInformation(inputArray, nodes);
 
-        for(int i = 1; i < numberOfNodes+1; i++)
-            allPairs(numberOfNodes, i, nodes);
+
+
+        Scanner in = new Scanner(System.in);
+
+        System.out.println("All Pairs (1) or Source Node (2): ");
+        int mode = in.nextInt();
+
+        if(mode == 1) {
+            for(int i = 1; i < numberOfNodes+1; i++)
+                allPairs(numberOfNodes, i, nodes);
+        }
+        else if(mode == 2) {
+
+            System.out.println("Enter the Source Node (1-"+numberOfNodes+"): ");
+            int node = in.nextInt();
+
+            if(node < 1 || node > numberOfNodes) {
+                System.out.println("Error, out of range");
+                System.exit(0);
+            }
+            pathsFromSource(numberOfNodes, node, nodes);
+        }
+        else {
+            System.out.println("Error try again");
+            System.exit(0);
+        }
     }
 
     public static void allPairs(int numberOfNodes, int startNode, Node[] nodes) {
-
 
         Node start = nodes[startNode-1]; //Minus one because we are using zero based indexes.
 
         //Call the algorithm, and hope it works.
         dkijstra(start);
 
+        String fullRoutes = "-----===== All ["+start+" -> X] Pairs =====-----\n";
+
+        //Loop through each node, and call the method to find the shortest path for that particular node.
+        for(int i = 0; i < nodes.length; i++) {
+            ArrayList<Node> path = findShortestPath(nodes[i]);
+
+            //Also output the full path of the graph because why not.
+            fullRoutes += "["+start+" -> "+nodes[i]+"]: [";
+
+            for(int j = 0; j < path.size(); j++) {
+
+                fullRoutes += path.get(j);
+
+                if(j != path.size()-1)
+                    fullRoutes += " > ";
+            }
+
+            fullRoutes += "], with a distance of: ("+nodes[i].distance+")\n";
+        }
+
+
+        //And the full paths.
+        System.out.println(fullRoutes);
+
+        for(int i = 0; i < nodes.length; i++) {
+            nodes[i].distance = Integer.MAX_VALUE;
+            nodes[i].previousNode = null;
+        }
+    }
+
+    public static void pathsFromSource(int numberOfNodes, int startNode, Node[] nodes) {
+
+        Node start = nodes[startNode-1]; //Minus one because we are using zero based indexes.
+
+        //Call the algorithm, and hope it works.
+        dkijstra(start);
+
+        System.out.println("------=====Forwarding Table=====-------");
         //Construct our forwarding table and string output.
         String[][] forwardingTable = new String[numberOfNodes+1][2];
         forwardingTable[0][0] = "NODE";
         forwardingTable[0][1] = "NEXT HOP";
 
-        String fullRoutes = "---Full Complete Paths---\n";
-        fullRoutes += "Source Node = "+nodes[startNode-1]+"\n";
+        String fullRoutes = "-----=====Full Complete Paths=====-----\n\n";
 
         //Loop through each node, and call the method to find the shortest path for that particular node.
         for(int i = 0; i < nodes.length; i++) {
@@ -83,6 +143,8 @@ public class Algorithm {
             }
             System.out.println();
         }
+
+        System.out.println();
 
         //And the full paths.
         System.out.println(fullRoutes);
