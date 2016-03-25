@@ -12,14 +12,6 @@ import java.util.PriorityQueue;
  */
 public class Algorithm {
 
-    //Start State to define the source node
-    static Node start = null;
-    //Priority node to keep track of the next unvisited node to examine.
-    static PriorityQueue<Node> pq = new PriorityQueue<>();
-    //Output variables.
-    static String fullRoutes = "";
-    static String[][] forwardingTable;
-
     /**
      * All the things happen here.
      * @param args
@@ -43,17 +35,25 @@ public class Algorithm {
 
         //Pass the text file information to a method to make the code appear less terrible.
         getNodeInformation(inputArray, nodes);
-        start = nodes[startNode-1]; //Minus one because we are using zero based indexes.
+
+        for(int i = 1; i < numberOfNodes+1; i++)
+            allPairs(numberOfNodes, i, nodes);
+    }
+
+    public static void allPairs(int numberOfNodes, int startNode, Node[] nodes) {
+
+
+        Node start = nodes[startNode-1]; //Minus one because we are using zero based indexes.
 
         //Call the algorithm, and hope it works.
         dkijstra(start);
 
         //Construct our forwarding table and string output.
-        forwardingTable = new String[numberOfNodes+1][2];
+        String[][] forwardingTable = new String[numberOfNodes+1][2];
         forwardingTable[0][0] = "NODE";
         forwardingTable[0][1] = "NEXT HOP";
 
-        fullRoutes += "---Full Complete Paths---\n";
+        String fullRoutes = "---Full Complete Paths---\n";
         fullRoutes += "Source Node = "+nodes[startNode-1]+"\n";
 
         //Loop through each node, and call the method to find the shortest path for that particular node.
@@ -86,6 +86,11 @@ public class Algorithm {
 
         //And the full paths.
         System.out.println(fullRoutes);
+
+        for(int i = 0; i < nodes.length; i++) {
+            nodes[i].distance = Integer.MAX_VALUE;
+            nodes[i].previousNode = null;
+        }
     }
 
     /**
