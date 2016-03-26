@@ -7,9 +7,7 @@ import java.util.Scanner;
 
 /**
  * Author - Tyler Wilding
- * Purpose - Networks Assignment
- *
- * NOTICE - Text file should be in the same directory as the code, this depends on your IDE configuration however.
+ * Purpose - Analysis of Algorithms assignment, uses djikstra's algorithm.
  */
 public class Algorithm {
 
