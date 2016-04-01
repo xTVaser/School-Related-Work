@@ -13,6 +13,9 @@ public class Man {
     public ArrayList<Woman> preferences = new ArrayList<Woman>();
     public String name;
 
+    /**
+     * Initializes the Man with a random name.
+     */
     public Man() {
 
         String inputString = null;
@@ -32,6 +35,10 @@ public class Man {
         name = name.substring(0,1)+name.substring(1).toLowerCase();
     }
 
+    /**
+     * Converts a Woman array into the ArrayList of woman we use now.
+     * @param array Array of Women
+     */
     public void addPreferences(Woman[] array) {
 
         for(int i = 0; i < array.length; i++)
