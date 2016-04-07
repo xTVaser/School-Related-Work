@@ -1,2 +1,4 @@
-# Winter2016
-School related work for 2016 classes.  
+# School Related Work
+Winter 2016:  
+- Analysis of Algorithms
+- Software Engineering
